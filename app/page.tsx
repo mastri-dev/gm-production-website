@@ -20,12 +20,14 @@ export default function HomePage() {
 
             <h1 className="text-5xl md:text-6xl font-bold mt-6 leading-tight">
               Chiavi auto perse o bloccate?
-              <span className="text-[#0066FF]"> Le rifacciamo subito.</span>
+              <span className="text-[#0066FF] block mt-2">
+                Intervento immediato a Milano
+              </span>
             </h1>
 
             <p className="mt-6 text-gray-400 text-lg">
-              Servizio rapido di duplicazione e programmazione chiavi auto a Milano e provincia.
-              Interventi anche in emergenza.
+              Duplicazione e codifica chiavi auto con intervento rapido anche in emergenza.
+              Siamo operativi su Milano e provincia.
             </p>
 
             <div className="mt-8 flex gap-4 flex-col md:flex-row">
@@ -56,21 +58,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* KEYS ANIMATION */}
-      <section className="py-16 overflow-hidden bg-black/30">
-        <h2 className="text-center text-2xl font-bold mb-8">
-          Chiavi auto in movimento
+      {/* EMERGENCY */}
+      <section className="py-16 px-6 text-center bg-red-500/10 border-y border-red-500/20">
+        <h2 className="text-3xl font-bold text-red-400">
+          Hai perso tutte le chiavi dell’auto?
         </h2>
 
-        <div className="flex gap-8 animate-marquee whitespace-nowrap items-center">
-          <Image src="/car-key.jpg" alt="chiave auto" width={180} height={120} className="rounded-xl" />
-          <Image src="/car-key.jpg" alt="chiave auto" width={180} height={120} className="rounded-xl" />
-          <Image src="/car-key.jpg" alt="chiave auto" width={180} height={120} className="rounded-xl" />
-          <Image src="/car-key.jpg" alt="chiave auto" width={180} height={120} className="rounded-xl" />
-        </div>
+        <p className="text-gray-300 mt-4 max-w-xl mx-auto">
+          Interveniamo rapidamente anche senza chiave originale. Servizio emergenza attivo su Milano e provincia.
+        </p>
+
+        <a
+          href="tel:022402155"
+          className="inline-block mt-6 bg-red-500 px-8 py-4 rounded-xl font-semibold hover:scale-105 transition"
+        >
+          Chiama subito emergenza
+        </a>
       </section>
 
-      {/* SERVICES GRID (migliorata stile premium) */}
+      {/* SERVICES GRID */}
       <section className="py-20 px-6 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">
           Servizi professionali
@@ -78,12 +84,12 @@ export default function HomePage() {
 
         <div className="grid md:grid-cols-4 gap-6">
           {[
-            "Duplicazione Chiavi",
-            "Chiavi Smarrite",
-            "Codifica Auto",
-            "Telecomandi"
+            "Duplicazione Chiavi Auto",
+            "Programmazione Chip Transponder",
+            "Sblocco Auto Senza Chiave",
+            "Riparazione Telecomandi"
           ].map((s) => (
-            <div key={s} className="bg-[#171A21] p-6 rounded-xl border border-white/10 hover:border-[#0066FF]/40 transition">
+            <div key={s} className="bg-[#171A21] p-6 rounded-xl border border-white/10 hover:border-[#0066FF]/40 hover:scale-105 transition cursor-pointer">
               {s}
             </div>
           ))}
@@ -114,7 +120,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* RECENSIONI (placeholder migliorato per futura API Google) */}
+      {/* RECENSIONI */}
       <section className="py-20 max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold mb-6">Recensioni clienti Google</h2>
 
@@ -148,6 +154,7 @@ export default function HomePage() {
       {/* CTA FINAL */}
       <section className="py-20 text-center">
         <h2 className="text-3xl font-bold">Hai bisogno di una chiave auto?</h2>
+
         <div className="mt-6 flex justify-center gap-4 flex-col md:flex-row">
           <a href="tel:022402155" className="bg-[#0066FF] px-8 py-4 rounded-xl">Chiama ora</a>
           <a href="https://wa.me/39022402155" className="bg-white/5 border border-white/10 px-8 py-4 rounded-xl">WhatsApp</a>
