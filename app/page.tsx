@@ -5,9 +5,23 @@ export default function HomePage() {
     <main className="bg-white text-black overflow-x-hidden">
 
       {/* HERO */}
-      <section className="min-h-screen flex items-center px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <section className="relative min-h-screen flex items-center px-6 overflow-hidden">
 
+        {/* background car image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/luxury-car.jpg"
+            alt="car"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-white/70" />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+          {/* TEXT */}
           <div>
             <p className="text-sm tracking-widest text-gray-500 uppercase">
               GM Production • Milano
@@ -25,27 +39,41 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex gap-4 flex-col md:flex-row">
-              <a href="tel:022402155" className="bg-black text-white px-8 py-4 rounded-full hover:opacity-90 transition">
+              <a href="tel:022402155" className="bg-black text-white px-8 py-4 rounded-full">
                 Chiama ora
               </a>
-              <a href="https://wa.me/39022402155" className="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition">
+              <a href="https://wa.me/39022402155" className="border border-black px-8 py-4 rounded-full">
                 WhatsApp
               </a>
             </div>
-
-            <p className="mt-6 text-sm text-gray-500">
-              ⚡ Interventi rapidi • 🔐 Tutti i marchi auto • 📍 Milano
-            </p>
           </div>
 
-          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
-            <Image
-              src="/car-service.jpg"
-              alt="GM Production"
-              fill
-              className="object-cover"
-              priority
-            />
+          {/* ORBIT KEYS */}
+          <div className="relative flex items-center justify-center">
+
+            <div className="relative w-[320px] h-[320px] animate-spin-slow">
+
+              <div className="absolute inset-0 rounded-full border border-gray-300" />
+
+              {/* key orbit items */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2">
+                <Image src="/car-key.jpg" width={80} height={60} alt="key" className="rounded-lg" />
+              </div>
+
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+                <Image src="/car-key.jpg" width={80} height={60} alt="key" className="rounded-lg" />
+              </div>
+
+              <div className="absolute left-0 top-1/2 -translate-y-1/2">
+                <Image src="/car-key.jpg" width={80} height={60} alt="key" className="rounded-lg" />
+              </div>
+
+              <div className="absolute right-0 top-1/2 -translate-y-1/2">
+                <Image src="/car-key.jpg" width={80} height={60} alt="key" className="rounded-lg" />
+              </div>
+
+            </div>
+
           </div>
 
         </div>
@@ -53,9 +81,7 @@ export default function HomePage() {
 
       {/* EMERGENCY */}
       <section className="py-16 px-6 text-center bg-gray-50 border-y">
-        <h2 className="text-3xl font-semibold">
-          Emergenza chiavi auto
-        </h2>
+        <h2 className="text-3xl font-semibold">Emergenza chiavi auto</h2>
         <p className="text-gray-600 mt-4 max-w-xl mx-auto">
           Interveniamo rapidamente anche senza chiave originale su Milano e provincia.
         </p>
@@ -69,10 +95,7 @@ export default function HomePage() {
 
       {/* SERVICES */}
       <section className="py-20 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-semibold text-center mb-12">
-          Servizi
-        </h2>
-
+        <h2 className="text-3xl font-semibold text-center mb-12">Servizi</h2>
         <div className="grid md:grid-cols-4 gap-6">
           {[
             "Duplicazione chiavi auto",
@@ -80,7 +103,7 @@ export default function HomePage() {
             "Sblocco veicoli",
             "Riparazione telecomandi"
           ].map((s) => (
-            <div key={s} className="border rounded-xl p-6 hover:shadow-md transition">
+            <div key={s} className="border rounded-xl p-6">
               {s}
             </div>
           ))}
@@ -121,7 +144,7 @@ export default function HomePage() {
             "Problema risolto in meno di un’ora",
             "Ottima assistenza anche in emergenza"
           ].map((r,i)=> (
-            <div key={i} className="border rounded-xl p-6 text-gray-700">
+            <div key={i} className="border rounded-xl p-6">
               {r}
             </div>
           ))}
