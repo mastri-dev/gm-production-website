@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HomePage() {
   return (
     <main className="bg-[#0F1115] text-white overflow-x-hidden">
@@ -27,7 +29,6 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex gap-4 flex-col md:flex-row">
-
               <a href="tel:022402155" className="bg-[#0066FF] px-8 py-4 rounded-xl font-semibold hover:scale-105 transition">
                 Chiama ora
               </a>
@@ -35,7 +36,6 @@ export default function HomePage() {
               <a href="https://wa.me/39022402155?text=Ciao%20GM%20Production,%20ho%20bisogno%20di%20una%20chiave%20auto" className="bg-white/5 border border-white/10 px-8 py-4 rounded-xl hover:border-white/30 transition">
                 WhatsApp
               </a>
-
             </div>
 
             <p className="mt-6 text-sm text-gray-500">
@@ -43,47 +43,55 @@ export default function HomePage() {
             </p>
           </div>
 
-          <img
-            src="/car-service.jpg"
-            className="rounded-2xl shadow-2xl border border-white/10"
-          />
+          <div className="relative w-full h-[420px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <Image
+              src="/car-service.jpg"
+              alt="GM Production servizio chiavi auto"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
 
         </div>
       </section>
 
-      {/* KEYS ANIMATION SECTION */}
+      {/* KEYS ANIMATION */}
       <section className="py-16 overflow-hidden bg-black/30">
         <h2 className="text-center text-2xl font-bold mb-8">
           Chiavi auto in movimento
         </h2>
+
         <div className="flex gap-8 animate-marquee whitespace-nowrap items-center">
-          <img src="/car-key.jpg" className="h-32 rounded-xl" />
-          <img src="/car-key.jpg" className="h-32 rounded-xl" />
-          <img src="/car-key.jpg" className="h-32 rounded-xl" />
-          <img src="/car-key.jpg" className="h-32 rounded-xl" />
-          <img src="/car-key.jpg" className="h-32 rounded-xl" />
+          <Image src="/car-key.jpg" alt="chiave auto" width={180} height={120} className="rounded-xl" />
+          <Image src="/car-key.jpg" alt="chiave auto" width={180} height={120} className="rounded-xl" />
+          <Image src="/car-key.jpg" alt="chiave auto" width={180} height={120} className="rounded-xl" />
+          <Image src="/car-key.jpg" alt="chiave auto" width={180} height={120} className="rounded-xl" />
         </div>
       </section>
 
-      <section className="py-16 px-6 max-w-6xl mx-auto">
-
-        <h2 className="text-3xl font-bold text-center mb-10">
-          Interventi & Lavorazioni
+      {/* SERVICES GRID (migliorata stile premium) */}
+      <section className="py-20 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Servizi professionali
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
-
-    <img src="/car-key.jpg" className="rounded-xl h-64 object-cover border border-white/10" />
-    <img src="/car-service.jpg" className="rounded-xl h-64 object-cover border border-white/10" />
-    <img src="/luxury-car.jpg" className="rounded-xl h-64 object-cover border border-white/10" />
-
+        <div className="grid md:grid-cols-4 gap-6">
+          {[
+            "Duplicazione Chiavi",
+            "Chiavi Smarrite",
+            "Codifica Auto",
+            "Telecomandi"
+          ].map((s) => (
+            <div key={s} className="bg-[#171A21] p-6 rounded-xl border border-white/10 hover:border-[#0066FF]/40 transition">
+              {s}
+            </div>
+          ))}
         </div>
-
       </section>
 
       {/* TRUST */}
-      <section className="py-20 max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
-
+      <section className="py-16 max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
         {[
           { t: "Intervento Rapido", d: "Arriviamo in pochi minuti a Milano." },
           { t: "Tutti i Marchi", d: "BMW, Audi, Mercedes, Fiat e altri." },
@@ -94,41 +102,31 @@ export default function HomePage() {
             <p className="text-gray-400 mt-2">{x.d}</p>
           </div>
         ))}
-
       </section>
 
       {/* GALLERY */}
       <section className="py-10 overflow-hidden">
         <div className="flex gap-6 animate-marquee whitespace-nowrap">
-          <img src="/car-key.jpg" className="h-28 rounded-xl" />
-          <img src="/luxury-car.jpg" className="h-28 rounded-xl" />
-          <img src="/car-service.jpg" className="h-28 rounded-xl" />
-          <img src="/car-key.jpg" className="h-28 rounded-xl" />
+          <Image src="/car-key.jpg" width={140} height={100} alt="key" className="rounded-xl" />
+          <Image src="/luxury-car.jpg" width={140} height={100} alt="car" className="rounded-xl" />
+          <Image src="/car-service.jpg" width={140} height={100} alt="service" className="rounded-xl" />
+          <Image src="/car-key.jpg" width={140} height={100} alt="key" className="rounded-xl" />
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="servizi" className="py-20 max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-10">
-          I Nostri Servizi
-        </h2>
-        <div className="grid md:grid-cols-4 gap-6">
-          {["Duplicazione Chiavi","Chiavi Smarrite","Codifica Auto","Telecomandi"].map((s) => (
-            <div key={s} className="bg-[#171A21] p-6 rounded-xl hover:bg-[#1C2029] transition border border-white/10">
-              {s}
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* RECENSIONI (placeholder migliorato per futura API Google) */}
+      <section className="py-20 max-w-6xl mx-auto px-6 text-center">
+        <h2 className="text-3xl font-bold mb-6">Recensioni clienti Google</h2>
 
-      {/* RECENSIONI */}
-      <section id="recensioni" className="py-20 max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-6">Recensioni Clienti</h2>
         <div className="text-yellow-400 text-xl font-semibold">★★★★★ 4.8 su Google</div>
-        <p className="text-gray-500 mt-2">Basato su recensioni reali clienti GM Production</p>
+        <p className="text-gray-500 mt-2">Recensioni reali in arrivo da Google Places API</p>
 
         <div className="grid md:grid-cols-3 gap-6 mt-10">
-          {["Servizio velocissimo e super professionale","Risolto problema chiavi in meno di 1 ora","Disponibili anche in emergenza, consigliato"].map((r,i)=>(
+          {[
+            "Servizio velocissimo e super professionale",
+            "Risolto problema chiavi in meno di 1 ora",
+            "Disponibili anche in emergenza, consigliato"
+          ].map((r,i)=> (
             <div key={i} className="bg-[#171A21] p-6 rounded-xl text-gray-300 border border-white/10">
               ★★★★★ {r}
             </div>
@@ -137,21 +135,22 @@ export default function HomePage() {
       </section>
 
       {/* MAP */}
-      <section id="mappa" className="py-20 px-6 max-w-6xl mx-auto">
+      <section className="py-20 px-6 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-10">Dove Siamo</h2>
+
         <iframe
           className="w-full h-[450px] rounded-2xl border border-white/10 shadow-xl"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.04911284682163!2d9.241712394708333!3d45.52936745015816!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c77d5cd69e7f%3A0x415b888c8475432a!2sG.M.%20PRODUCTION%20Srl%20-%20Duplicazione%20Chiavi%20Auto%20-%20Codifiche%20-%20Telecomandi!5e0!3m2!1sit!2sit!4v1781191442797!5m2!1sit!2sit"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.04911284682163!2d9.241712394708333!3d45.52936745015816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c77d5cd69e7f%3A0x415b888c8475432a!2sG.M.%20PRODUCTION%20Srl%20-%20Duplicazione%20Chiavi%20Auto%20-%20Codifiche%20-%20Telecomandi!5e0!3m2!1sit!2sit!4v1781191442797!5m2!1sit!2sit"
           loading="lazy"
         />
       </section>
 
-      {/* CTA */}
+      {/* CTA FINAL */}
       <section className="py-20 text-center">
         <h2 className="text-3xl font-bold">Hai bisogno di una chiave auto?</h2>
         <div className="mt-6 flex justify-center gap-4 flex-col md:flex-row">
           <a href="tel:022402155" className="bg-[#0066FF] px-8 py-4 rounded-xl">Chiama ora</a>
-          <a href="https://wa.me/39022402155?text=Ho%20bisogno%20di%20una%20chiave%20auto" className="bg-white/5 border border-white/10 px-8 py-4 rounded-xl">WhatsApp</a>
+          <a href="https://wa.me/39022402155" className="bg-white/5 border border-white/10 px-8 py-4 rounded-xl">WhatsApp</a>
         </div>
       </section>
 
