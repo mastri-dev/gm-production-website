@@ -50,7 +50,7 @@ export default function HomePage() {
           </div>
 
           <img
-            src="/car-service.jpg"
+            src="https://www.chiaviautomilano.it/images/banner_home_3_h05363qv.png"
             className="rounded-2xl shadow-2xl border border-white/10"
           />
 
@@ -65,9 +65,9 @@ export default function HomePage() {
 
   <div className="grid md:grid-cols-3 gap-6">
 
-    <img src="/car-key.jpg" className="rounded-xl h-64 object-cover border border-white/10" />
-    <img src="/car-service.jpg" className="rounded-xl h-64 object-cover border border-white/10" />
-    <img src="/luxury-car.jpg" className="rounded-xl h-64 object-cover border border-white/10" />
+    <img src="https://www.chiaviautomilano.it/images/chiave_home_01.png" />
+    <img src="https://www.chiaviautomilano.it/images/chiave_home_02.png" />
+    <img src="https://www.chiaviautomilano.it/images/chiavi_auto_mano.png" />
 
   </div>
 
