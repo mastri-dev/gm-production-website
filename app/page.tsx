@@ -7,11 +7,11 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center px-6 overflow-hidden">
 
-        {/* background car image */}
+        {/* background car */}
         <div className="absolute inset-0">
           <Image
             src="/luxury-car.jpg"
-            alt="car"
+            alt="GM Production Car"
             fill
             className="object-cover"
             priority
@@ -23,15 +23,13 @@ export default function HomePage() {
 
           {/* TEXT */}
           <div>
-            <p className="text-sm tracking-widest text-gray-500 uppercase">
+            <p className="text-sm tracking-[0.35em] text-gray-500 uppercase italic font-light">
               GM Production • Milano
             </p>
 
             <h1 className="text-5xl md:text-6xl font-semibold mt-6 leading-tight">
               Chiavi auto perse o bloccate
-              <span className="block mt-3">
-                Intervento immediato a Milano
-              </span>
+              <span className="block mt-3">Intervento immediato a Milano</span>
             </h1>
 
             <p className="mt-6 text-gray-600 text-lg leading-relaxed">
@@ -48,49 +46,18 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* ORBIT KEYS */}
-          <div className="relative flex items-center justify-center">
-
-            <div className="relative w-[320px] h-[320px] animate-spin-slow">
-
-              <div className="absolute inset-0 rounded-full border border-gray-300" />
-
-              {/* key orbit items */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2">
-                <Image src="/car-key.jpg" width={80} height={60} alt="key" className="rounded-lg" />
-              </div>
-
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-                <Image src="/car-key.jpg" width={80} height={60} alt="key" className="rounded-lg" />
-              </div>
-
-              <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                <Image src="/car-key.jpg" width={80} height={60} alt="key" className="rounded-lg" />
-              </div>
-
-              <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                <Image src="/car-key.jpg" width={80} height={60} alt="key" className="rounded-lg" />
-              </div>
-
-            </div>
-
+          {/* CAR IMAGE */}
+          <div className="relative w-full h-[520px] rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="/luxury-car.jpg"
+              alt="Auto"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
         </div>
-      </section>
-
-      {/* EMERGENCY */}
-      <section className="py-16 px-6 text-center bg-gray-50 border-y">
-        <h2 className="text-3xl font-semibold">Emergenza chiavi auto</h2>
-        <p className="text-gray-600 mt-4 max-w-xl mx-auto">
-          Interveniamo rapidamente anche senza chiave originale su Milano e provincia.
-        </p>
-        <a
-          href="tel:022402155"
-          className="inline-block mt-6 bg-black text-white px-8 py-4 rounded-full"
-        >
-          Chiama subito
-        </a>
       </section>
 
       {/* SERVICES */}
@@ -103,10 +70,21 @@ export default function HomePage() {
             "Sblocco veicoli",
             "Riparazione telecomandi"
           ].map((s) => (
-            <div key={s} className="border rounded-xl p-6">
+            <div key={s} className="border rounded-xl p-6 hover:shadow-md transition">
               {s}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* KEYS MARQUEE LOOP */}
+      <section className="py-10 overflow-hidden bg-gray-50">
+        <div className="flex gap-6 animate-marquee whitespace-nowrap">
+          <Image src="/car-key.jpg" width={140} height={100} alt="key" className="rounded-xl" />
+          <Image src="/car-key.jpg" width={140} height={100} alt="key" className="rounded-xl" />
+          <Image src="/car-key.jpg" width={140} height={100} alt="key" className="rounded-xl" />
+          <Image src="/car-key.jpg" width={140} height={100} alt="key" className="rounded-xl" />
+          <Image src="/car-key.jpg" width={140} height={100} alt="key" className="rounded-xl" />
         </div>
       </section>
 
@@ -124,41 +102,44 @@ export default function HomePage() {
         ))}
       </section>
 
-      {/* GALLERY */}
-      <section className="py-10 overflow-hidden">
-        <div className="flex gap-6 whitespace-nowrap">
-          <Image src="/car-key.jpg" width={140} height={100} alt="key" className="rounded-xl" />
-          <Image src="/luxury-car.jpg" width={140} height={100} alt="car" className="rounded-xl" />
-          <Image src="/car-service.jpg" width={140} height={100} alt="service" className="rounded-xl" />
-        </div>
-      </section>
-
-      {/* RECENSIONI */}
+      {/* REVIEWS REDESIGN */}
       <section className="py-20 px-6 max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold mb-6">Recensioni</h2>
-        <p className="text-gray-600">★★★★★ 4.8 su Google</p>
+        <h2 className="text-3xl font-semibold mb-4">Recensioni clienti</h2>
+        <p className="text-gray-500">★★★★★ 4.8 su Google</p>
 
         <div className="grid md:grid-cols-3 gap-6 mt-10">
           {[
-            "Servizio veloce e professionale",
-            "Problema risolto in meno di un’ora",
-            "Ottima assistenza anche in emergenza"
-          ].map((r,i)=> (
-            <div key={i} className="border rounded-xl p-6">
-              {r}
+            { r: "Servizio rapidissimo e professionale", n: "Marco" },
+            { r: "Problema risolto in meno di un’ora", n: "Luca" },
+            { r: "Assistenza impeccabile anche in emergenza", n: "Giulia" }
+          ].map((x, i) => (
+            <div key={i} className="border rounded-xl p-6 text-left hover:shadow-md transition">
+              <p className="text-gray-700">“{x.r}”</p>
+              <p className="text-sm text-gray-400 mt-4">— {x.n}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* MAP */}
+      {/* CONTACT */}
       <section className="py-20 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-semibold text-center mb-10">Dove siamo</h2>
-        <iframe
-          className="w-full h-[450px] rounded-2xl border"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.04911284682163!2d9.241712394708333!3d45.52936745015816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c77d5cd69e7f%3A0x415b888c8475432a!2sG.M.%20PRODUCTION%20Srl%20-%20Duplicazione%20Chiavi%20Auto%20-%20Codifiche%20-%20Telecomandi!5e0!3m2!1sit!2sit!4v1781191442797!5m2!1sit!2sit"
-          loading="lazy"
-        />
+        <h2 className="text-3xl font-semibold text-center mb-10">Contatti</h2>
+
+        <div className="grid md:grid-cols-2 gap-10 text-gray-700">
+
+          <div className="space-y-3">
+            <p><strong>Telefono:</strong> 022402155</p>
+            <p><strong>WhatsApp:</strong> +39 022402155</p>
+            <p><strong>Email:</strong> info@gmproduction.it</p>
+          </div>
+
+          <div className="space-y-3">
+            <p><strong>Indirizzo:</strong> GM Production Srl</p>
+            <p><strong>Città:</strong> Milano</p>
+            <p><strong>Provincia:</strong> MI</p>
+          </div>
+
+        </div>
       </section>
 
       {/* CTA */}
