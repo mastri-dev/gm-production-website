@@ -5,15 +5,11 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import MobileCTA from "@/components/ui/MobileCTA";
 
 export const metadata = {
-  title: "GM Production - Chiavi Auto Milano",
-  description: "Duplicazione e programmazione chiavi auto a Milano",
+  title: "Duplicazione Chiavi Auto Milano | GM Production",
+  description: "Duplicazione chiavi auto, codifica telecomandi, recupero chiavi smarrite e assistenza rapida a Milano.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it">
       <body className="bg-[#0F1115] text-white scroll-smooth overflow-x-hidden">
